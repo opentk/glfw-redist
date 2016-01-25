@@ -1,5 +1,7 @@
 # GLFW NuGet #
 
+![GLFW Icon](https://bytebucket.org/sgrottel/glfw_nuget/raw/7bab6beb2556f884bb37f730571e09341993197d/glfw.png)
+
 This repository contains all files and information to create a NuGet package out of the officiel pre-compiled binaries of GLFW.
 
 ## GLFW ##
