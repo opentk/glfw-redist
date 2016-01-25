@@ -1,0 +1,54 @@
+configurations {
+    Toolset {
+        key : "PlatformToolset";
+        choices: { v140, v120, v110, v100 };
+    };
+}
+
+nuget{
+    nuspec{
+        id = GLFW;
+        version : 3.1.2;
+        title: GLFW;
+        authors: {Marcus Geelnard, Camilla Berglund};
+        owners: {Sebastian Grottel};
+        licenseUrl: "http://www.glfw.org/license.html";
+        projectUrl: "http://www.sgrottel.de/nuget/anttweakbar"; // TODO
+        iconUrl: "http://anttweakbar.sourceforge.net/doc/lib/tpl/antisphere/images/aswikilogo.gif"; // TODO
+        requireLicenseAcceptance: false;
+        summary: "GLFW is an Open Source, multi-platform library for creating windows with OpenGL contexts and receiving input and events.";
+        description: @"GLFW is an Open Source, multi-platform library for creating windows with OpenGL contexts and receiving input and events. It is easy to integrate into existing applications and does not lay claim to the main loop.
+
+GLFW is written in C and has native support for Windows, OS X and many Unix-like systems using the X Window System, such as Linux and FreeBSD.";
+        releaseNotes: "GLFW official pre-compiled binaries are packaged for NuGet by S. Grottel (http://www.sgrottel.de)";
+        copyright: Copyright 2015;
+        tags: { AntTweakBar, native, CoApp };
+    }
+    files {
+        #defines {
+        }
+        include: {
+            "..\include\AntTweakBar.h"
+        };
+        docs: {
+            "..\*.txt",
+            "..\AntTweakBar_Doc.url"
+        };
+        
+		("v100,v110,v120,v140", "Debug,Release") => {
+			[Win32,${0},${1}] {
+				lib: lib\${0}\Win32\${1}\AntTweakBar.lib;
+				symbols: lib\${0}\Win32\${1}\AntTweakBar.pdb;
+				bin: lib\${0}\Win32\${1}\AntTweakBar.dll;
+			}
+			[x64,${0},${1}] {
+				lib: lib\${0}\x64\${1}\AntTweakBar64.lib;
+				symbols: lib\${0}\x64\${1}\AntTweakBar64.pdb;
+				bin: lib\${0}\x64\${1}\AntTweakBar64.dll;
+			}
+		}
+    }
+   targets {
+        Defines += HAS_GLFW;
+    }
+}
