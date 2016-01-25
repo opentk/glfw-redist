@@ -41,6 +41,7 @@ Project Website: http://www.glfw.org/
 ## Building the NuGet Package ##
 
 Install CoApp Tools: http://coapp.org/
+
 * http://coapp.org/tutorials/installation.html
 * http://coapp.org/tutorials/building-a-package.html
 
