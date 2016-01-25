@@ -4,6 +4,10 @@
 
 This repository contains all files and information to create a NuGet package out of the officiel pre-compiled binaries of GLFW.
 
+For problems with the NuGet package contact SGrottel: 
+* https://bitbucket.org/sgrottel/glfw_nuget/overview
+* http://www.sgrottel.de
+
 ## GLFW ##
 
 [GLFW](http://www.glfw.org/) is an Open Source, multi-platform library for creating windows with OpenGL contexts and receiving input and events.
@@ -29,4 +33,10 @@ Project Website: http://www.glfw.org/
 
 ## Building the NuGet Package ##
 
-TODO
+Install CoApp Tools: http://coapp.org/
+* http://coapp.org/tutorials/installation.html
+* http://coapp.org/tutorials/building-a-package.html
+
+Navigate your Powershell to the repository.
+
+Run: `Write-NuGetPackage .\GLFW.autopkg`
