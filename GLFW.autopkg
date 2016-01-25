@@ -25,8 +25,6 @@ GLFW is written in C and has native support for Windows, OS X and many Unix-like
         tags: { GLFW, native, CoApp };
     }
     files {
-        #defines {
-        }
         nestedInclude: {
 			#destination=${d_include}GLFW;
             "include\GLFW\*"
@@ -36,27 +34,43 @@ GLFW is written in C and has native support for Windows, OS X and many Unix-like
         };
 		docsHTML: {
 			#destination=${d_docs}html;
-			"docs\html\*"
-		};
-		docsHTMLSearch: {
-			#destination=${d_docs}html\search;
-			"docs\html\search\*"
+			#flatten=false;
+			"docs\html\**"
 		};
         
-		// ("v100,v110,v120,v140", "Debug,Release") => {
-			// [Win32,${0},${1}] {
-				// lib: lib\${0}\Win32\${1}\AntTweakBar.lib;
-				// symbols: lib\${0}\Win32\${1}\AntTweakBar.pdb;
-				// bin: lib\${0}\Win32\${1}\AntTweakBar.dll;
-			// }
-			// [x64,${0},${1}] {
-				// lib: lib\${0}\x64\${1}\AntTweakBar64.lib;
-				// symbols: lib\${0}\x64\${1}\AntTweakBar64.pdb;
-				// bin: lib\${0}\x64\${1}\AntTweakBar64.dll;
-			// }
-		// }
+		[v100,Win32,static] {
+			lib: Win32\lib-vc2010\glfw3.lib;
+		}
+		[v100,Win32,dynamic] {
+			lib: Win32\lib-vc2010\glfw3dll.lib;
+			bin: Win32\lib-vc2010\glfw3.dll;
+		}
+		("Win32,x64") => {
+			[v110,${0},static] {
+				lib: ${0}\lib-vc2012\glfw3.lib;
+			}
+			[v110,${0},dynamic] {
+				lib: ${0}\lib-vc2012\glfw3dll.lib;
+				bin: ${0}\lib-vc2012\glfw3.dll;
+			}
+			[v120,${0},static] {
+				lib: ${0}\lib-vc2013\glfw3.lib;
+			}
+			[v120,${0},dynamic] {
+				lib: ${0}\lib-vc2013\glfw3dll.lib;
+				bin: ${0}\lib-vc2013\glfw3.dll;
+			}
+			[v140,${0},static] {
+				lib: ${0}\lib-vc2015\glfw3.lib;
+			}
+			[v140,${0},dynamic] {
+				lib: ${0}\lib-vc2015\glfw3dll.lib;
+				bin: ${0}\lib-vc2015\glfw3.dll;
+			}
+		}
     }
-   targets {
+    targets {
         Defines += HAS_GLFW;
+		[dynamic] Defines += GLFW_DLL;
     }
 }
