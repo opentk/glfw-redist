@@ -4,9 +4,14 @@
 
 This repository contains all files and information to create a NuGet package out of the officiel pre-compiled binaries of GLFW.
 
+I do not compile the library myself! I only package the available pre-compiled binaries.
+
 For problems with the NuGet package contact SGrottel: 
 * https://bitbucket.org/sgrottel/glfw_nuget/overview
 * http://www.sgrottel.de
+
+For problems with the library itself contact the authors:
+* http://www.glfw.org/
 
 ## GLFW ##
 
