@@ -32,7 +32,7 @@ GLFW is written in C and has native support for Windows, OS X and many Unix-like
             "include\GLFW\*"
         };
         docs: {
-            "COPYING.txt"
+            "docs/COPYING.txt"
         };
 		docsHTML: {
 			#destination=${d_docs}html;

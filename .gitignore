@@ -1,5 +1,10 @@
 /docs
 /include
 /*.nupkg
-/Win32
-/x64
+/Win32/lib-vc2013
+/Win32/lib-vc2015
+/Win32/lib-vc2010
+/Win32/lib-vc2012
+/x64/lib-vc2012
+/x64/lib-vc2013
+/x64/lib-vc2015
