@@ -1,8 +1,5 @@
-/lib-vc2013
-/lib-vc2015
-/COPYING.txt
 /docs
 /include
-/lib-vc2010
-/lib-vc2012
 /*.nupkg
+/Win32
+/x64

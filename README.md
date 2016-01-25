@@ -22,14 +22,14 @@ Project Website: http://www.glfw.org/
 ## How do I get set up? ##
 
 * Download the pre-compiled GLFW for Windows (`WIN32` and `WIN64`): http://www.glfw.org/download.html
-* Copy the following items into the repository root folder:
-    * docs
-    * include
-    * lib-vc2010
-    * lib-vc2012
-    * lib-vc2013
-    * lib-vc2015
-    * COPYING.txt
+* Copy the following items into the corresponding folders:
+    * `docs` > `.`
+    * `include` > `.`
+    * `lib-vc2010` > `Win32`
+    * `lib-vc2012` > `Win32` or `x64`
+    * `lib-vc2013` > `Win32` or `x64`
+    * `lib-vc2015` > `Win32` or `x64`
+    * `COPYING.txt` > `docs`
 
 ## Building the NuGet Package ##
 
