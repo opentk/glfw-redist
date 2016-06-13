@@ -8,7 +8,7 @@ install:
  - ps: Import-Module CoApp
 
 build_script:
- - set VERSION=3.1.2
+ - set VERSION=3.2
  - curl -fsSL -o win32.zip https://github.com/glfw/glfw/releases/download/%VERSION%/glfw-%VERSION%.bin.WIN32.zip
  - curl -fsSL -o win64.zip https://github.com/glfw/glfw/releases/download/%VERSION%/glfw-%VERSION%.bin.WIN64.zip
  - 7z x win32.zip -otmp32 > nul

@@ -8,7 +8,7 @@ configurations {
 nuget {
 	nuspec {
 		id = glfw;
-		version : 3.1.2;
+		version : 3.2;
 		title: GLFW;
 		authors: {Marcus Geelnard, Camilla Berglund};
 		owners: {Sebastian Grottel};
