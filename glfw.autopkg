@@ -8,13 +8,13 @@ configurations {
 nuget {
 	nuspec {
 		id = glfw;
-		version : 3.2;
+		version : 3.2.1;
 		title: GLFW;
 		authors: {Marcus Geelnard, Camilla Berglund};
 		owners: {Sebastian Grottel};
 		licenseUrl: "http://www.glfw.org/license.html";
-		projectUrl: "https://bitbucket.org/sgrottel/glfw_nuget/overview";
-		iconUrl: "https://bytebucket.org/sgrottel/glfw_nuget/raw/7bab6beb2556f884bb37f730571e09341993197d/glfw_sq.png";
+		projectUrl: "https://bitbucket.org/sgrottel_nuget/glfw/overview";
+		iconUrl: "https://bytebucket.org/sgrottel_nuget/glfw/raw/7bab6beb2556f884bb37f730571e09341993197d/glfw_sq.png";
 		requireLicenseAcceptance: false;
 		summary: "GLFW is an Open Source, multi-platform library for creating windows with OpenGL contexts and receiving input and events.";
 		description: @"GLFW is an Open Source, multi-platform library for creating windows with OpenGL contexts and receiving input and events. It is easy to integrate into existing applications and does not lay claim to the main loop.

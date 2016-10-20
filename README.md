@@ -1,6 +1,6 @@
 # GLFW NuGet #
 
-![GLFW Icon](https://bytebucket.org/sgrottel/glfw_nuget/raw/7bab6beb2556f884bb37f730571e09341993197d/glfw.png)
+![GLFW Icon](https://bytebucket.org/sgrottel_nuget/glfw/raw/7bab6beb2556f884bb37f730571e09341993197d/glfw.png)
 
 This repository contains all files and information to create a NuGet package out of the officiel pre-compiled binaries of GLFW.
 
@@ -8,7 +8,7 @@ I do not compile the library myself! I only package the available pre-compiled b
 
 For problems with the NuGet package contact SGrottel: 
 
-* https://bitbucket.org/sgrottel/glfw_nuget/overview
+* https://bitbucket.org/sgrottel_nuget/glfw/overview
 * http://www.sgrottel.de
 
 For problems with the library itself contact the authors:
