@@ -8,8 +8,9 @@ I do not compile the library myself! I only package the available pre-compiled b
 
 For problems with the NuGet package contact SGrottel: 
 
-* https://bitbucket.org/sgrottel_nuget/glfw/overview
+* https://bitbucket.org/sgrottel_nuget/glfw
 * http://www.sgrottel.de
+* http://go.sgrottel.de/nuget/glfw
 
 For problems with the library itself contact the authors:
 
