@@ -1,14 +1,14 @@
 configurations {
 	Toolset {
 		key : "PlatformToolset";
-		choices: { v140, v120, v110, v100 };
+		choices: { v141,v140,v120,v110,v100 };
 	};
 };
 
 nuget {
 	nuspec {
 		id = glfw;
-		version : 3.2.1;
+		version : 3.2.1-v141to2015;
 		title: GLFW;
 		authors: {Marcus Geelnard, Camilla Berglund};
 		owners: {Sebastian Grottel};
@@ -67,6 +67,13 @@ GLFW official pre-compiled binaries are packaged for NuGet by S. Grottel (http:/
 				lib: ${0}\lib-vc2015\glfw3.lib;
 			};
 			[v140,${0},dynamic] {
+				lib: ${0}\lib-vc2015\glfw3dll.lib;
+				bin: ${0}\lib-vc2015\glfw3.dll;
+			};
+			[v141,${0},static] {
+				lib: ${0}\lib-vc2015\glfw3.lib;
+			};
+			[v141,${0},dynamic] {
 				lib: ${0}\lib-vc2015\glfw3dll.lib;
 				bin: ${0}\lib-vc2015\glfw3.dll;
 			};
