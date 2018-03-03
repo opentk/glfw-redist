@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
  	<!-- nuget pack .\FARO.MorfAccessApp.nuspec -properties version=1.2.3.4 -->
 
@@ -60,10 +60,7 @@ GLFW official pre-compiled binaries (http://www.glfw.org) are packaged for NuGet
 		
 		<!-- VS files -->
 		<file src="glfw.targets" target="build\native\glfw.targets" />
-        <!--
-		<file src="build\native\default-propertiesui.xml" target="build\native\default-propertiesui.xml" />
-        <file src="build\native\glfw-propertiesui-7c22389a-b4d7-4f22-97ca-1cd989fc8ed0.xml" target="build\native\glfw-propertiesui-7c22389a-b4d7-4f22-97ca-1cd989fc8ed0.xml" />
-		-->
+		<file src="glfw-propertiesui.xml" target="build\native\glfw-propertiesui.xml" />
 
 	</files>
 </package>
