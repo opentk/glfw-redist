@@ -38,14 +38,17 @@ Project Website: http://www.glfw.org/
     * `lib-vc2013` > `Win32` or `x64`
     * `lib-vc2015` > `Win32` or `x64`
     * `COPYING.txt` > `docs`
+* You might need to adjust `glfw.nuspec`, `glfw.targets`, and `glfw-propertiesui.xml`
+    * `glfw.nuspec` stores the meta data and which files to include in the package.
+	* `glfw.targets` contains all MSBuild settings to consume the package. This includes automatic adjustment of platforms, configurations and toolsets.
+	* `glfw-propertiesui.xml` provides some Visual Studio UI to allow the consume of the package to force some settings.
 
 ## Building the NuGet Package ##
 
-Install CoApp Tools: http://coapp.org/
+Install nuget command line tool.
 
-* http://coapp.org/tutorials/installation.html
-* http://coapp.org/tutorials/building-a-package.html
+Run: `make_nuget.ps1 . 5`
 
-Navigate your Powershell to the repository.
+The first argument is this project directory.
 
-Run: `Write-NuGetPackage .\GLFW.autopkg`
+The second argument is the build number, which is to be increased each time a new package for the same version is published.
