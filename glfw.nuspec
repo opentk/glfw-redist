@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
- 	<!-- nuget pack .\FARO.MorfAccessApp.nuspec -properties version=1.2.3.4 -->
+	<!-- nuget pack .\FARO.MorfAccessApp.nuspec -properties version=1.2.3.4 -->
 
 	<!-- package metadata -->
-   <metadata>
-        <id>glfw</id>
+	<metadata>
+		<id>glfw</id>
 		<version>$version$</version>
-        <title>GLFW</title>
-        <authors>Marcus Geelnard,Camilla Berglund</authors>
-        <owners>Sebastian Grottel</owners>
-        <licenseUrl>http://www.glfw.org/license.html</licenseUrl>
-        <projectUrl>https://bitbucket.org/sgrottel_nuget/glfw/overview</projectUrl>
-        <iconUrl>https://bytebucket.org/sgrottel_nuget/glfw/raw/7bab6beb2556f884bb37f730571e09341993197d/glfw_sq.png</iconUrl>
-        <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>GLFW is an Open Source, multi-platform library for creating windows with OpenGL contexts and receiving input and events. It is easy to integrate into existing applications and does not lay claim to the main loop.
+		<title>GLFW</title>
+		<authors>Marcus Geelnard,Camilla Berglund</authors>
+		<owners>Sebastian Grottel</owners>
+		<licenseUrl>http://www.glfw.org/license.html</licenseUrl>
+		<projectUrl>https://bitbucket.org/sgrottel_nuget/glfw/overview</projectUrl>
+		<iconUrl>https://bytebucket.org/sgrottel_nuget/glfw/raw/7bab6beb2556f884bb37f730571e09341993197d/glfw_sq.png</iconUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>GLFW is an Open Source, multi-platform library for creating windows with OpenGL contexts and receiving input and events. It is easy to integrate into existing applications and does not lay claim to the main loop.
 
 GLFW is written in C and has native support for Windows, OS X and many Unix-like systems using the X Window System, such as Linux and FreeBSD.
 
 GLFW official pre-compiled binaries (http://www.glfw.org) are packaged for NuGet by S. Grottel (http://go.sgrottel.de/nuget/glfw).</description>
-        <summary>GLFW is an Open Source, multi-platform library for creating windows with OpenGL contexts and receiving input and events.</summary>
-        <releaseNotes>This package release fixes nuget package version confusion. It should now automatically and correctly work, even with VS 2017.
+		<summary>GLFW is an Open Source, multi-platform library for creating windows with OpenGL contexts and receiving input and events.</summary>
+		<releaseNotes>This package release fixes nuget package version confusion. It should now automatically and correctly work, even with VS 2017.
 
 Note this package is no longer built using CoApp. Thus, there is no redist package any more. Everything is included here.
 
 GLFW official pre-compiled binaries (http://www.glfw.org) are packaged for NuGet by S. Grottel (http://go.sgrottel.de/nuget/glfw).</releaseNotes>
-        <copyright>Copyright 2017-2018</copyright>
-        <tags>GLFW native nativepackage</tags>
-    </metadata>
+		<copyright>Copyright 2017-2018</copyright>
+		<tags>GLFW native nativepackage</tags>
+	</metadata>
 
 	<!-- content -->
-    <files>
+	<files>
 		<!-- documentation -->
 		<file src="docs\**" target="build\native\docs" />
 		

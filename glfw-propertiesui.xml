@@ -11,11 +11,11 @@
 			<EnumValue Name="" DisplayName="Dynamic Library (DLL)" />
 			<EnumValue Name="static" DisplayName="Static" />
 		</EnumProperty>
-		<EnumProperty Name="GlfwConfiguration" DisplayName="Configuration" Description="Which configuration of the library to use" Category="glfw">
+		<!-- <EnumProperty Name="GlfwConfiguration" DisplayName="Configuration" Description="Which configuration of the library to use" Category="glfw">
 			<EnumValue Name="" DisplayName="default" />
 			<EnumValue Name="Release" DisplayName="Release" />
 			<EnumValue Name="Debug" DisplayName="Debug" />
-		</EnumProperty>
+		</EnumProperty>-->
 		<EnumProperty Name="GlfwPlatformToolset" DisplayName="Toolset" Description="Which toolset version of the library to use" Category="glfw">
 			<EnumValue Name="" DisplayName="default" />
 			<EnumValue Name="v100" DisplayName="MSVC 2010 (v100)" />
