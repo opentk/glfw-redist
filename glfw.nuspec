@@ -20,7 +20,7 @@ GLFW is written in C and has native support for Windows, OS X and many Unix-like
 GLFW official pre-compiled binaries (http://www.glfw.org) are packaged for NuGet by S. Grottel (http://go.sgrottel.de/nuget/glfw).</description>
 		<summary>GLFW is an Open Source, multi-platform library for creating windows with OpenGL contexts and receiving input and events.</summary>
 		<releaseNotes>https://www.glfw.org/changelog.html GLFW official pre-compiled binaries (http://www.glfw.org) are packaged for NuGet by S. Grottel (http://go.sgrottel.de/nuget/glfw).</releaseNotes>
-		<copyright>Copyright 2017-2019</copyright>
+		<copyright>Copyright 2017-2020</copyright>
 		<tags>GLFW native nativepackage</tags>
 	</metadata>
 
