@@ -1,11 +1,15 @@
 /docs
 /include
 /*.nupkg
+/Win32/lib-vc2012
+/Win32/lib-vc2010
 /Win32/lib-vc2013
 /Win32/lib-vc2015
-/Win32/lib-vc2010
-/Win32/lib-vc2012
+/Win32/lib-vc2017
+/Win32/lib-vc2019
 /x64/lib-vc2012
 /x64/lib-vc2013
 /x64/lib-vc2015
+/x64/lib-vc2017
+/x64/lib-vc2019
 /desktop.ini
