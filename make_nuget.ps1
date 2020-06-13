@@ -1,7 +1,7 @@
 param([String]$projectDir, [int]$verBuild)
 $ErrorActionPreference = "Stop"
 
-$header = gc([System.IO.Path]::Combine($projectDir, ".\include\GLFW\glfw3.h")) | Out-String
+$header = Get-Content([System.IO.Path]::Combine($projectDir, ".\include\GLFW\glfw3.h")) | Out-String
 
 if ($header -match '(?m)^#define\s+GLFW_VERSION_MAJOR\s+(\d+)\s*$') { $verMajor = $Matches[1] }
 else { throw "Failed to parse major version number from header." }
@@ -14,4 +14,4 @@ $version = "$verMajor.$verMinor.$verPatch.$verBuild"
 
 $nuspec = [System.IO.Path]::Combine($projectDir, ".\glfw.nuspec")
 
-nuget pack $nuspec -properties version=$version
+dotnet pack $nuspec -properties version=$version
