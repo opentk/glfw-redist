@@ -1,11 +1,52 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  
+<Project Sdk="Microsoft.NET.Sdk" DefaultTargets="Pack">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <NuspecFile>glfw.nuspec</NuspecFile>
-
     <NoBuild>true</NoBuild>
-    <NoRestore>true</NoRestore>
     <IncludeBuildOutput>false</IncludeBuildOutput>
+    <IncludeSymbols>false</IncludeSymbols>
+    <RuntimeIdentifiers>win-x86;win-x64;osx-x64;linux-x64</RuntimeIdentifiers>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageVersion>$(VERSION)</PackageVersion>
+    
+    <PackageProjectUrl>https://www.glfw.org/</PackageProjectUrl>
+    <PackageLicenseFile>COPYING.md</PackageLicenseFile>
+    
+    <PackageId>opentoolkit.redist.glfw</PackageId>
+    <Authors>OpenToolkit</Authors>
+    <Owners>OpenToolkit</Owners>
+    <Description>GLFW redistributables for OpenTK.</Description>
+    <PackageIcon>opentk.png</PackageIcon>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="tmp/glfw-$(GLFW_VERSION).bin.WIN64/lib-vc2019/*.dll">
+      <PackagePath>lib/runtimes/win-x64/native/</PackagePath>
+      <Pack>true</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tmp/glfw-$(GLFW_VERSION).bin.WIN32/lib-vc2019/*.dll">
+      <PackagePath>lib/runtimes/win-x86/native/</PackagePath>
+      <Pack>true</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tmp/glfw-$(GLFW_VERSION).bin.MACOS/lib-macos/*.dylib">
+      <PackagePath>lib/runtimes/osx-x64/native/</PackagePath>
+      <Pack>true</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tmp/src/build/src/*.so.$(GLFW_VERSION)">
+      <PackagePath>lib/runtimes/linux-x64/native/</PackagePath>
+      <Pack>true</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+
+    <Content Include="tmp/glfw-$(GLFW_VERSION).bin.WIN32/LICENSE.md">
+      <PackagePath>COPYING.md</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="opentoolkit.redist.glfw.targets">
+      <PackagePath>build/</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <None Include="tmp/opentk.png" Pack="true" PackagePath="/"/>
+  </ItemGroup>
 </Project>

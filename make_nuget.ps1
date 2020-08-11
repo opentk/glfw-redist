@@ -1,7 +1,18 @@
 param([String]$projectDir, [int]$verBuild)
+
+$GLFW_VERSION=3.3
+
+$buildVersionResult = $verBuild.ToString()
+
+if($verBuild -eq 0) {
+    $buildVersionResult = "0-pre" + (Get-Date).ToUniversalTime().ToString("yyyyMMddHHmmss")
+}
+
+./download_dependencies.ps1 $GLFW_VERSION
+
 $ErrorActionPreference = "Stop"
 
-$header = Get-Content([System.IO.Path]::Combine($projectDir, ".\include\GLFW\glfw3.h")) | Out-String
+$header = Get-Content([System.IO.Path]::Combine($projectDir, ".\tmp\src\include\GLFW\glfw3.h")) | Out-String
 
 if ($header -match '(?m)^#define\s+GLFW_VERSION_MAJOR\s+(\d+)\s*$') { $verMajor = $Matches[1] }
 else { throw "Failed to parse major version number from header." }
@@ -10,8 +21,22 @@ else { throw "Failed to parse minor version number from header." }
 if ($header -match '(?m)^#define\s+GLFW_VERSION_REVISION\s+(\d+)\s*$') { $verPatch = $Matches[1] }
 else { throw "Failed to parse patch version number from header." }
 
-$version = "$verMajor.$verMinor.$verPatch.$verBuild"
+$version = "$verMajor.$verMinor.$verPatch.$buildVersionResult"
 
-$nuspec = [System.IO.Path]::Combine($projectDir, ".\glfw.nuspec")
+$nuspec = [System.IO.Path]::Combine($projectDir, ".\glfw-redist.csproj")
 
-dotnet pack $nuspec -properties version=$version
+dotnet pack $nuspec -c Release -p:VERSION="$version" -p:GLFW_VERSION="$GLFW_VERSION" -o ./artifacts
+
+New-item tmp/zippatch/lib/runtimes/linux-x64/native -ItemType Directory -Force
+
+$glfw_symlinks=Dir tmp/src/build/src/ -Force -ErrorAction 'silentlycontinue' | Where { $_.Attributes -match "ReparsePoint" -And $_.Name -match "libglfw*"}
+foreach($s in $glfw_symlinks) {
+    cp -P --preserve=links $s.FullName tmp/zippatch/lib/runtimes/linux-x64/native/
+}
+
+
+pushd tmp/zippatch
+
+zip --symlinks -gr ../../artifacts/opentoolkit.redist.glfw.*.nupkg .
+
+popd
