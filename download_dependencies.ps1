@@ -31,7 +31,9 @@ Expand-Archive -Path tmp/win32.zip -DestinationPath tmp/ -Force
 Expand-Archive -Path tmp/win64.zip -DestinationPath tmp/ -Force
 Expand-Archive -Path tmp/macos.zip -DestinationPath tmp/ -Force
 Expand-Archive -Path tmp/source.zip -DestinationPath tmp/ -Force
-Remove-Item -Recurse -Path tmp/src
+if (Test-Path tmp/src) {
+    Remove-Item -Recurse -Path tmp/src
+}
 Rename-Item -Path tmp/glfw-$GLFW_VERSION -NewName src
 
 mkdir tmp/src/build
