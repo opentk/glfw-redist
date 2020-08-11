@@ -7,8 +7,8 @@ $buildVersionResult = $verBuild.ToString()
 $currentBranch=(git log -n 1 --pretty=%D HEAD)
 $splt = [regex]::split($currentBranch, "(\s*,\s+)|(\s+->\s+)")
 $currentBranch=$splt[2]
-
-echo $splt
+$splt = $currentBranch -split "/"
+$currentBranch = $splt[$splt.Length - 1]
 echo "Current Branch: $currentBranch"
 
 if($currentBranch -eq "develop") {

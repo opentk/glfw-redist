@@ -40,6 +40,14 @@ mkdir tmp/src/build
 pushd tmp/src/build
 cmake -DCMAKE_BUILD_TYPE=Release -DGLFW_BUILD_EXAMPLES=OFF -DGLFW_BUILD_TESTS=OFF -DBUILD_SHARED_LIBS=ON ..
 
+if ($LastExitCode -ne 0) {
+    throw 'GLFW compilation setup failed'
+}
+
 make -j
+
+if ($LastExitCode -ne 0) {
+    throw 'GLFW compilation failed'
+}
 
 popd
