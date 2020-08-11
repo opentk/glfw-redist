@@ -19,6 +19,8 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
+    - name: Install X11 dependencies
+      run: sudo apt-get install xorg-dev
     - uses: actions/checkout@v1
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
