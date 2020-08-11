@@ -24,11 +24,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 2.2.108
-    - name: Install dependencies
-      run: ./download_dependencies.ps1
-      shell: pwsh
-    - name: Create Nuget Package
+    - name: Download dependencies and create Nuget Package
       run: ./make_nuget.ps1
       shell: pwsh
+    - uses: actions/upload-artifact@v2
+      with:
+        name: NugetPackage
+        path: /artifacts/*.nupkg
     - name: Deploy Nuget Package
       run: dotnet nuget push ./artifacts/*.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json

@@ -1,16 +1,22 @@
 param([String]$projectDir, [int]$verBuild)
 
+$ErrorActionPreference = "Stop"
 $GLFW_VERSION=3.3
 
 $buildVersionResult = $verBuild.ToString()
+$currentBranch=(git log -n 1 --pretty=%D HEAD)
+$splt = [regex]::split($currentBranch, "(\s*,\s+)|(\s+->\s+)")
+$currentBranch=$splt[2]
 
-if($verBuild -eq 0) {
+echo $splt
+echo "Current Branch: $currentBranch"
+
+if($currentBranch -eq "develop") {
     $buildVersionResult = "0-pre" + (Get-Date).ToUniversalTime().ToString("yyyyMMddHHmmss")
 }
 
 ./download_dependencies.ps1 $GLFW_VERSION
 
-$ErrorActionPreference = "Stop"
 
 $header = Get-Content([System.IO.Path]::Combine($projectDir, ".\tmp\src\include\GLFW\glfw3.h")) | Out-String
 
