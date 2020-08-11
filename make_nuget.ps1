@@ -33,11 +33,11 @@ $nuspec = [System.IO.Path]::Combine($projectDir, ".\glfw-redist.csproj")
 
 dotnet pack $nuspec -c Release -p:VERSION="$version" -p:GLFW_VERSION="$GLFW_VERSION" -o ./artifacts
 
-New-item tmp/zippatch/lib/runtimes/linux-x64/native -ItemType Directory -Force
+New-item tmp/zippatch/runtimes/linux-x64/native -ItemType Directory -Force
 
 $glfw_symlinks=Dir tmp/src/build/src/ -Force -ErrorAction 'silentlycontinue' | Where { $_.Attributes -match "ReparsePoint" -And $_.Name -match "libglfw*"}
 foreach($s in $glfw_symlinks) {
-    cp -P --preserve=links $s.FullName tmp/zippatch/lib/runtimes/linux-x64/native/
+    cp -P --preserve=links $s.FullName tmp/zippatch/runtimes/linux-x64/native/
 }
 
 
