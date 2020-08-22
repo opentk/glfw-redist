@@ -43,10 +43,6 @@
       <PackagePath>COPYING.md</PackagePath>
       <Pack>true</Pack>
     </Content>
-    <Content Include="opentoolkit.redist.glfw.targets">
-      <PackagePath>build/</PackagePath>
-      <Pack>true</Pack>
-    </Content>
     <None Include="tmp/opentk.png" Pack="true" PackagePath="/"/>
   </ItemGroup>
 </Project>
