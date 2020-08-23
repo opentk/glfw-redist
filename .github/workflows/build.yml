@@ -1,0 +1,37 @@
+name: OpenTK GLFW Redistributable
+
+on:
+  workflow_dispatch:
+    inputs:
+  push:
+    branches:
+      - master
+      - develop
+jobs:
+  build:
+    env:
+        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: true
+      matrix: 
+        os: [ubuntu-latest]
+
+    steps:
+    - name: Install X11 dependencies
+      run: sudo apt-get install xorg-dev
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.2.108
+    - name: Download dependencies and create Nuget Package
+      run: ./make_nuget.ps1
+      shell: pwsh
+    - uses: actions/upload-artifact@v2
+      with:
+        name: NugetPackage
+        path: ./artifacts/*.nupkg
+    - name: Deploy Nuget Package
+      run: dotnet nuget push ./artifacts/*.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json
