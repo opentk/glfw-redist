@@ -11,9 +11,9 @@
     <PackageProjectUrl>https://www.glfw.org/</PackageProjectUrl>
     <PackageLicenseFile>COPYING.md</PackageLicenseFile>
     
-    <PackageId>opentoolkit.redist.glfw</PackageId>
-    <Authors>OpenToolkit</Authors>
-    <Owners>OpenToolkit</Owners>
+    <PackageId>OpenTK.redist.glfw</PackageId>
+    <Authors>Team OpenTK</Authors>
+    <Owners>Team OpenTK</Owners>
     <Description>GLFW redistributables for OpenTK.</Description>
     <PackageIcon>opentk.png</PackageIcon>
   </PropertyGroup>
