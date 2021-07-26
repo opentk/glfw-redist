@@ -28,7 +28,7 @@
       <Pack>true</Pack>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="tmp/glfw-$(GLFW_VERSION).bin.MACOS/lib-macos/*.dylib">
+    <Content Include="tmp/glfw-$(GLFW_VERSION).bin.MACOS/lib-universal/*.dylib">
       <PackagePath>runtimes/osx-x64/native/</PackagePath>
       <Pack>true</Pack>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
