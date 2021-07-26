@@ -27,7 +27,7 @@ jobs:
       with:
         dotnet-version: 2.2.108
     - name: Download dependencies and create Nuget Package
-      run: ./make_nuget.ps1
+      run: ./make_nuget.ps1 "" ${{ github.run_number }}
       shell: pwsh
     - uses: actions/upload-artifact@v2
       with:
