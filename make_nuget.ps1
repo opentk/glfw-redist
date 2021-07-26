@@ -1,7 +1,7 @@
 param([String]$projectDir, [int]$verBuild)
 
 $ErrorActionPreference = "Stop"
-$GLFW_VERSION=3.3
+[String]$GLFW_VERSION="3.3.4"
 
 $buildVersionResult = $verBuild.ToString()
 $currentBranch=(git log -n 1 --pretty=%D HEAD)
