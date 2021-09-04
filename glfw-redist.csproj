@@ -28,8 +28,13 @@
       <Pack>true</Pack>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="tmp/glfw-$(GLFW_VERSION).bin.MACOS/lib-universal/*.dylib">
+    <Content Include="tmp/glfw-$(GLFW_VERSION).bin.MACOS/lib-x86_64/*.dylib">
       <PackagePath>runtimes/osx-x64/native/</PackagePath>
+      <Pack>true</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  <Content Include="tmp/glfw-$(GLFW_VERSION).bin.MACOS/lib-arm64/*.dylib">
+      <PackagePath>runtimes/osx-arm64/native/</PackagePath>
       <Pack>true</Pack>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
