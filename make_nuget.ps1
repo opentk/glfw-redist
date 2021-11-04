@@ -9,7 +9,7 @@ $splt = [regex]::split($currentBranch, "(\s*,\s+)|(\s+->\s+)")
 $currentBranch=$splt[2]
 $splt = $currentBranch -split "/"
 $currentBranch = $splt[$splt.Length - 1]
-echo "Current Branch: $currentBranch"
+Write-Output "Current Branch: $currentBranch"
 
 if($currentBranch -eq "develop") {
     $buildVersionResult = "0-pre" + (Get-Date).ToUniversalTime().ToString("yyyyMMddHHmmss")
