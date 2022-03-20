@@ -49,5 +49,13 @@
       <Pack>true</Pack>
     </Content>
     <None Include="tmp/opentk.png" Pack="true" PackagePath="/"/>
+
+    <!-- We need to add this file to get rid of the NU5128 warning. 
+    We don't have any assemblies in this package so we add an empty _._ file
+    See "Add an empty _._ file" bullet point here: 
+    https://docs.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu5128#solution-1  -->
+    <Content Include="_._">
+      <PackagePath>lib/netstandard2.0/_._</PackagePath>
+    </Content>
   </ItemGroup>
 </Project>
