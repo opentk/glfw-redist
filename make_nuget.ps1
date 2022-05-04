@@ -3,6 +3,9 @@ param([String]$projectDir, [int]$verBuild)
 $ErrorActionPreference = "Stop"
 [String]$GLFW_VERSION="3.3.7"
 
+# The built .so file will end in .so.3.3 for a version like 3.3.7, to get the correct file we need to pass "3.3" to the .csproj
+[String]$GLFW_SHORT_VERSION = $GLFW_VERSION.Substring(0, $GLFW_VERSION.LastIndexOf("."))
+
 $buildVersionResult = $verBuild.ToString()
 $currentBranch=(git log -n 1 --pretty=%D HEAD)
 $splt = [regex]::split($currentBranch, "(\s*,\s+)|(\s+->\s+)")
@@ -31,4 +34,4 @@ $version = "$verMajor.$verMinor.$verPatch.$buildVersionResult"
 
 $nuspec = [System.IO.Path]::Combine($projectDir, ".\glfw-redist.csproj")
 
-dotnet pack $nuspec -c Release -p:VERSION="$version" -p:GLFW_VERSION="$GLFW_VERSION" -o ./artifacts
+dotnet pack $nuspec -c Release -p:VERSION="$version" -p:GLFW_VERSION="$GLFW_VERSION" -p:GLFW_SHORT_VERSION="$GLFW_SHORT_VERSION" -o ./artifacts
