@@ -18,12 +18,12 @@
     <PackageIcon>opentk.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="tmp/glfw-$(GLFW_VERSION).bin.WIN64/lib-vc2019/*.dll">
+    <Content Include="tmp/glfw-$(GLFW_VERSION).bin.WIN64/lib-static-ucrt/*.dll">
       <PackagePath>runtimes/win-x64/native/</PackagePath>
       <Pack>true</Pack>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="tmp/glfw-$(GLFW_VERSION).bin.WIN32/lib-vc2019/*.dll">
+    <Content Include="tmp/glfw-$(GLFW_VERSION).bin.WIN32/lib-static-ucrt/*.dll">
       <PackagePath>runtimes/win-x86/native/</PackagePath>
       <Pack>true</Pack>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
