@@ -7,11 +7,7 @@ $ErrorActionPreference = "Stop"
 [String]$GLFW_SHORT_VERSION = $GLFW_VERSION.Substring(0, $GLFW_VERSION.LastIndexOf("."))
 
 $buildVersionResult = $verBuild.ToString()
-$currentBranch=(git log -n 1 --pretty=%D HEAD)
-$splt = [regex]::split($currentBranch, "(\s*,\s+)|(\s+->\s+)")
-$currentBranch=$splt[2]
-$splt = $currentBranch -split "/"
-$currentBranch = $splt[$splt.Length - 1]
+$currentBranch=(git branch --show-current)
 Write-Output "Current Branch: $currentBranch"
 
 if($currentBranch -eq "develop") {
