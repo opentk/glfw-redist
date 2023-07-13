@@ -14,8 +14,8 @@ GLFW is licensed under the [zlib/libpng license](http://www.glfw.org/license.htm
 
 Project Website: http://www.glfw.org/
 
-For this nuget package to properly work on Windows, "Visual C++ Redistributable 2015" needs to be installed.
-This is because we are using the `VS2019` prebuilt binaries provided by GLFW.
+We are as of `3.3.8.35` using the `static-ucrt` build of GLFW on windows which means that "Visual C++ Redistributable 2015" is no longer a requirement.
+Previous versions of this package was using the `VS2019` binaries which recuired "Visual C++ Redistributable 2015" to be installed.
 
 ## How do I get set up? ##
 
