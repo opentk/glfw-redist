@@ -65,7 +65,7 @@ if ($LastExitCode -ne 0) {
 
 make -j
 
-Rename-Item -Path "src/libglfw.so.3.3" -NewName "libglfw-wayland.so.$GLFW_SHORT_VERSION"
+Rename-Item -Path "src/libglfw.so.$GLFW_SHORT_VERSION" -NewName "libglfw-wayland.so.$GLFW_SHORT_VERSION"
 if ($LastExitCode -ne 0) {
     throw 'GLFW Wayland compilation failed'
 }
