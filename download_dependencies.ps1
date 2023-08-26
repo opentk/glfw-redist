@@ -1,7 +1,5 @@
-Param([parameter(Mandatory=$true,Position=0)][String]$GLFW_VERSION)
-
-# The built .so file will end in .so.3.3 for a version like 3.3.7, to get the correct file we need to pass "3.3" Rename-Item for wayland
-[String]$GLFW_SHORT_VERSION = $GLFW_VERSION.Substring(0, $GLFW_VERSION.LastIndexOf("."))
+Param([parameter(Mandatory=$true,Position=0)][String]$GLFW_VERSION,
+      [parameter(Mandatory=$true,Position=1)][String]$GLFW_SHORT_VERSION)
 
 New-Item -ItemType Directory -Force -Path tmp
 
