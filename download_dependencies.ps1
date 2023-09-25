@@ -1,4 +1,5 @@
-Param([parameter(Mandatory=$true,Position=0)][String]$GLFW_VERSION)
+Param([parameter(Mandatory=$true,Position=0)][String]$GLFW_VERSION,
+      [parameter(Mandatory=$true,Position=1)][String]$GLFW_SHORT_VERSION)
 
 New-Item -ItemType Directory -Force -Path tmp
 
@@ -62,6 +63,7 @@ if ($LastExitCode -ne 0) {
 
 make -j
 
+Rename-Item -Path "src/libglfw.so.$GLFW_SHORT_VERSION" -NewName "libglfw-wayland.so.$GLFW_SHORT_VERSION"
 if ($LastExitCode -ne 0) {
     throw 'GLFW Wayland compilation failed'
 }
