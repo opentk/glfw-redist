@@ -20,10 +20,13 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
-      - name: Install dependencies
+      - name: Install X11 dependencies
         run: |
           apt-get update
-          apt-get install -y xorg-dev libwayland-dev libxkbcommon-dev wayland-protocols extra-cmake-modules curl wget git cmake
+          apt-get install -y xorg-dev libwayland-dev libxkbcommon-dev wayland-protocols extra-cmake-modules
+      - name: Install build dependencies
+        run: |
+          apt-get install -y curl wget git cmake
           wget https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/powershell_7.4.0-1.deb_amd64.deb
           dpkg -i powershell_7.4.0-1.deb_amd64.deb
       - uses: actions/checkout@v3
