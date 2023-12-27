@@ -10,30 +10,33 @@ on:
 jobs:
   build:
     env:
-        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-        
+      NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+    
     runs-on: ${{ matrix.os }}
+    container: debian:oldoldstable
     strategy:
       fail-fast: true
-      matrix: 
+      matrix:
         os: [ubuntu-latest]
 
     steps:
-    - name: Install X11 dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install xorg-dev libwayland-dev libxkbcommon-dev wayland-protocols extra-cmake-modules
-    - uses: actions/checkout@v3
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 6.0.x
-    - name: Download dependencies and create Nuget Package
-      run: ./make_nuget.ps1 "" ${{ github.run_number }}
-      shell: pwsh
-    - uses: actions/upload-artifact@v3
-      with:
-        name: NugetPackage
-        path: ./artifacts/*.nupkg
-    - name: Deploy Nuget Package
-      run: dotnet nuget push ./artifacts/*.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json
+      - name: Install dependencies
+        run: |
+          apt-get update
+          apt-get install -y xorg-dev libwayland-dev libxkbcommon-dev wayland-protocols extra-cmake-modules curl wget git cmake
+          wget https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/powershell_7.4.0-1.deb_amd64.deb
+          dpkg -i powershell_7.4.0-1.deb_amd64.deb
+      - uses: actions/checkout@v3
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+      - name: Download dependencies and create Nuget Package
+        run: ./make_nuget.ps1 "" ${{ github.run_number }}
+        shell: pwsh
+      - uses: actions/upload-artifact@v3
+        with:
+          name: NugetPackage
+          path: ./artifacts/*.nupkg
+      - name: Deploy Nuget Package
+        run: dotnet nuget push ./artifacts/*.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json
