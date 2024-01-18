@@ -11,6 +11,7 @@ jobs:
   build:
     env:
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+    runs-on: ubuntu-latest
     container: debian:oldoldstable
     strategy:
       fail-fast: true
