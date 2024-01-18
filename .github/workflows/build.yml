@@ -11,13 +11,9 @@ jobs:
   build:
     env:
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-    
-    runs-on: ${{ matrix.os }}
     container: debian:oldoldstable
     strategy:
       fail-fast: true
-      matrix:
-        os: [ubuntu-latest]
 
     steps:
       - name: Install X11 dependencies
