@@ -1,7 +1,7 @@
 param([String]$projectDir, [int]$verBuild)
 
 $ErrorActionPreference = "Stop"
-[String]$GLFW_VERSION="3.3.8"
+[String]$GLFW_VERSION="3.4"
 
 # The built .so file will end in .so.3.3 for a version like 3.3.7, to get the correct file we need to pass "3.3" to the .csproj
 [String]$GLFW_SHORT_VERSION = $GLFW_VERSION.Substring(0, $GLFW_VERSION.LastIndexOf("."))
