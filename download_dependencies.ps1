@@ -1,4 +1,5 @@
-Param([parameter(Mandatory=$true,Position=0)][String]$GLFW_VERSION)
+Param([parameter(Mandatory=$true,Position=0)][String]$GLFW_VERSION,
+      [parameter(Mandatory=$true,Position=1)][String]$GLFW_SHORT_VERSION)
 
 New-Item -ItemType Directory -Force -Path tmp
 
