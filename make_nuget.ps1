@@ -14,7 +14,7 @@ if($currentBranch -eq "develop") {
     $buildVersionResult = "0-pre" + (Get-Date).ToUniversalTime().ToString("yyyyMMddHHmmss")
 }
 
-./download_dependencies.ps1 $GLFW_VERSION $GLFW_SHORT_VERSION
+./download_dependencies.ps1 $GLFW_VERSION
 
 
 $header = Get-Content([System.IO.Path]::Combine($projectDir, ".\tmp\src\include\GLFW\glfw3.h")) | Out-String
