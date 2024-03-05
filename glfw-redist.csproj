@@ -38,13 +38,8 @@
       <Pack>true</Pack>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="tmp/src/build-x11/src/*.so.$(GLFW_SHORT_VERSION)">
+    <Content Include="tmp/src/build/src/*.so.$(GLFW_SHORT_VERSION)">
       <PackagePath>runtimes/linux-x64/native/</PackagePath>
-      <Pack>true</Pack>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="tmp/src/build-wayland/src/*.so.$(GLFW_SHORT_VERSION)">
-      <PackagePath>runtimes/linux-x64/native/wayland/</PackagePath>
       <Pack>true</Pack>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
