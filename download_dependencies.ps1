@@ -1,5 +1,4 @@
-Param([parameter(Mandatory=$true,Position=0)][String]$GLFW_VERSION,
-      [parameter(Mandatory=$true,Position=1)][String]$GLFW_SHORT_VERSION)
+Param([parameter(Mandatory=$true,Position=0)][String]$GLFW_VERSION)
 
 New-Item -ItemType Directory -Force -Path tmp
 
@@ -37,35 +36,18 @@ if (Test-Path tmp/src) {
 }
 Rename-Item -Path tmp/glfw-$GLFW_VERSION -NewName src
 
-mkdir tmp/src/build-x11
-pushd tmp/src/build-x11
-cmake -DCMAKE_BUILD_TYPE=Release -DGLFW_BUILD_EXAMPLES=OFF -DGLFW_BUILD_TESTS=OFF -DGLFW_BUILD_DOCS=OFF -DBUILD_SHARED_LIBS=ON ..
+mkdir tmp/src/build
+Push-Location tmp/src/build
+cmake -DCMAKE_BUILD_TYPE=Release -DGLFW_BUILD_EXAMPLES=OFF -DGLFW_BUILD_TESTS=OFF -DGLFW_BUILD_DOCS=OFF -DBUILD_SHARED_LIBS=ON -DGLFW_BUILD_X11=ON -DGLFW_BUILD_WAYLAND=ON ..
 
 if ($LastExitCode -ne 0) {
-    throw 'GLFW X11 compilation setup failed'
+    throw 'GLFW compilation setup failed'
 }
 
 make -j
 
 if ($LastExitCode -ne 0) {
-    throw 'GLFW X11 compilation failed'
+    throw 'GLFW compilation failed'
 }
 
-popd
-
-mkdir tmp/src/build-wayland
-pushd tmp/src/build-wayland
-cmake -DCMAKE_BUILD_TYPE=Release -DGLFW_BUILD_EXAMPLES=OFF -DGLFW_BUILD_TESTS=OFF  -DGLFW_BUILD_DOCS=OFF -DBUILD_SHARED_LIBS=ON -DGLFW_USE_WAYLAND=ON ..
-
-if ($LastExitCode -ne 0) {
-    throw 'GLFW Wayland compilation setup failed'
-}
-
-make -j
-
-Rename-Item -Path "src/libglfw.so.$GLFW_SHORT_VERSION" -NewName "libglfw-wayland.so.$GLFW_SHORT_VERSION"
-if ($LastExitCode -ne 0) {
-    throw 'GLFW Wayland compilation failed'
-}
-
-popd
+Pop-Location
